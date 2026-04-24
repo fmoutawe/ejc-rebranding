@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJC Rebranding - Essais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        p {
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .attempts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .attempt-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .attempt-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .attempt-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #e94560;
+        }
+        .attempt-label {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+    <h1>EJC Rebranding</h1>
+    <p>Choisissez un essai à visualiser</p>
+    <div class="attempts">
+        <a href="./attemp1/" class="attempt-card">
+            <div class="attempt-number">01</div>
+            <div class="attempt-label">Essai 1</div>
+        </a>
+        <a href="./attemp2/" class="attempt-card">
+            <div class="attempt-number">02</div>
+            <div class="attempt-label">Essai 2</div>
+        </a>
+        <a href="./attemp3/" class="attempt-card">
+            <div class="attempt-number">03</div>
+            <div class="attempt-label">Essai 3</div>
+        </a>
+        <a href="./attemp4/" class="attempt-card">
+            <div class="attempt-number">04</div>
+            <div class="attempt-label">Essai 4</div>
+        </a>
+        <a href="./attemp5/" class="attempt-card">
+            <div class="attempt-number">05</div>
+            <div class="attempt-label">Essai 5</div>
+        </a>
+    </div>
+</body>
+</html>
