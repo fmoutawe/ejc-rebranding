@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Les Entretiens Jacques Cartier sont le rendez-vous francophone des acteurs et decideurs d'Auvergne-Rhone-Alpes, du Quebec et de la francophonie canadienne.">
+  <meta property="og:title" content="Entretiens Jacques Cartier 2026">
+  <meta property="og:description" content="Du 9 au 11 novembre au Quebec">
+  <meta property="og:image" content="https://entretiensjacquescartier.com/app/uploads/2021/08/entretiens-jacques-cartier-1.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="https://entretiensjacquescartier.com/app/uploads/2021/08/favicon-ejc-65x65.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&amp;display=swap" rel="stylesheet">
+  <title>Entretiens Jacques Cartier 2026 | Auvergne-Rhone-Alpes x Quebec</title>
+  <style>
+
+
+    :root {
+      --rose-orange: #EF7E71;
+      --rose: #F0878C;
+      --rose-clair: #F3AF9B;
+      --violet: #9E6BAB;
+      --violet-clair: #9D86BE;
+      --violet-fonce: #7E1A57;
+      --gris-clair: #F3F0F0;
+      --gris-fonce: #4A4A4A;
+      --gris-vert: #7F877F;
+      --blanc: #FFFFFF;
+      --gradient-1: linear-gradient(135deg, #EF7E71, #F3AF9B);
+      --gradient-2: linear-gradient(135deg, #F0878C, #9E6BAB);
+      --gradient-3: linear-gradient(135deg, #F3A29B, #9D86BE);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Lato',sans-serif;font-weight:400;color:#1a1a1a;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .3s ease}
+    .nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+    .nav-logo{flex-shrink:0;display:flex;align-items:center;text-decoration:none}
+    .nav-logo img{height:44px;width:auto;transition:filter .3s}
+    .nav:not(.scrolled) .nav-logo img{filter:brightness(0) invert(1)}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+    .nav-links a{position:relative;text-decoration:none;font-size:.9rem;font-weight:700;letter-spacing:.02em;color:var(--blanc);transition:opacity .2s}
+    .nav.scrolled .nav-links a{color:var(--gris-fonce)}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:currentColor;transition:width .25s ease}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.4rem;border-radius:100px;font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.03em;border:2px solid var(--blanc);color:var(--blanc);transition:all .3s ease;white-space:nowrap}
+    .nav.scrolled .nav-cta{border-color:var(--violet-fonce);color:var(--violet-fonce)}
+    .nav-cta:hover{background:var(--blanc);color:var(--violet-fonce)}
+    .nav.scrolled .nav-cta:hover{background:var(--violet-fonce);color:var(--blanc)}
+    .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:.5rem;z-index:1001}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--blanc);margin:5px 0;transition:all .3s}
+    .nav.scrolled .nav-toggle span{background:var(--gris-fonce)}
+    .hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--gradient-2);overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 50% at 20% 50%,rgba(243,162,155,.4) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 80% 30%,rgba(158,107,171,.3) 0%,transparent 60%)}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:6rem 2rem 4rem;max-width:900px}
+    .hero-badge{display:inline-block;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:var(--blanc);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.5rem 1.2rem;border-radius:100px;margin-bottom:2rem}
+    .hero-title{font-weight:900;font-size:clamp(2.5rem,6vw,5rem);color:var(--blanc);line-height:1.1;margin-bottom:1rem;letter-spacing:-.01em}
+    .hero-title em{font-style:italic;font-weight:700}
+    .hero-date{display:inline-flex;align-items:center;gap:.6rem;font-size:1.1rem;font-weight:700;color:var(--blanc);background:rgba(255,255,255,.15);backdrop-filter:blur(8px);padding:.8rem 2rem;border-radius:100px;margin-bottom:2rem;letter-spacing:.03em}
+    .hero-date .dot{width:6px;height:6px;border-radius:50%;background:var(--blanc);opacity:.7}
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2.2rem;border-radius:100px;font-size:1rem;font-weight:700;text-decoration:none;letter-spacing:.02em;background:var(--blanc);color:var(--violet-fonce);border:none;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 24px rgba(126,26,87,.2)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(126,26,87,.35)}
+    .btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2.2rem;border-radius:100px;font-size:1rem;font-weight:700;text-decoration:none;letter-spacing:.02em;background:transparent;color:var(--blanc);border:2px solid rgba(255,255,255,.5);cursor:pointer;transition:all .3s ease}
+    .btn-outline:hover{background:rgba(255,255,255,.1);border-color:var(--blanc)}
+    .hero-visual{position:absolute;pointer-events:none;z-index:1}
+    .hero-visual.circle-1{width:300px;height:300px;border-radius:50%;border:1px solid rgba(255,255,255,.1);top:-80px;right:-60px}
+    .hero-visual.circle-2{width:180px;height:180px;border-radius:50%;border:1px solid rgba(255,255,255,.08);bottom:80px;left:-40px}
+    .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.7;animation:float 2s ease-in-out infinite}
+    .scroll-indicator span{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blanc)}
+    .scroll-indicator svg{width:20px;height:20px}
+    @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+    .section{padding:6rem 2rem}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section-label{font-size:.75rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--violet);margin-bottom:1rem}
+    .section-title{font-weight:900;font-size:clamp(2rem,4vw,3rem);color:#1a1a1a;line-height:1.2;margin-bottom:1.5rem}
+    .section-title.light{color:var(--blanc)}
+    .section-text{font-size:1.15rem;line-height:1.8;color:var(--gris-fonce);max-width:720px}
+    .section-text strong{font-weight:700;color:var(--violet-fonce)}
+    .intro{background:var(--gris-clair);position:relative;overflow:hidden}
+    .intro::after{content:'';position:absolute;top:0;right:0;width:400px;height:100%;background:var(--gradient-3);opacity:.08;pointer-events:none;clip-path:polygon(30% 0,100% 0,100% 100%,0% 100%)}
+    .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .intro-image{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+    .intro-image img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+    .intro-image::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(239,126,113,.2),rgba(158,107,171,.15))}
+    .stats{background:var(--gradient-2);position:relative;overflow:hidden}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;text-align:center;position:relative;z-index:2}
+    .stat-item{padding:2rem}
+    .stat-number{font-weight:900;font-size:clamp(2.5rem,5vw,4rem);color:var(--blanc);line-height:1;margin-bottom:.5rem}
+    .stat-label{font-size:1rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.03em}
+    .stat-divider{width:40px;height:3px;background:var(--blanc);opacity:.4;margin:0 auto 1rem;border-radius:2px}
+    .why{background:var(--blanc)}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .why-image{position:relative}
+    .why-image img{width:100%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.08)}
+    .why-image .accent-dot{position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:var(--gradient-1);z-index:-1}
+    .benefit-list{list-style:none;display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem}
+    .benefit-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;line-height:1.6;color:var(--gris-fonce)}
+    .benefit-list li .icon-check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--gradient-1);display:flex;align-items:center;justify-content:center;margin-top:2px}
+    .benefit-list li .icon-check svg{width:12px;height:12px;color:var(--blanc)}
+    .cards-section{background:var(--gris-clair)}
+    .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+    .card{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;text-decoration:none;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s ease,box-shadow .3s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.15)}
+    .card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .card:hover img{transform:scale(1.05)}
+    .card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(126,26,87,.7) 0%,transparent 60%)}
+    .card-label{position:absolute;bottom:1.5rem;left:1.5rem;color:var(--blanc);font-size:1.3rem;font-weight:900;letter-spacing:.02em}
+    .card-badge{position:absolute;top:1.2rem;right:1.2rem;background:var(--rose-orange);color:var(--blanc);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.4rem .8rem;border-radius:100px}
+    .speakers{background:var(--blanc)}
+    .speakers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+    .speaker-card{text-align:center;transition:transform .3s ease}
+    .speaker-card:hover{transform:translateY(-4px)}
+    .speaker-photo{width:100%;aspect-ratio:1;border-radius:16px;overflow:hidden;margin-bottom:1rem;background:var(--gris-clair);position:relative}
+    .speaker-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .speaker-card:hover .speaker-photo img{transform:scale(1.04)}
+    .speaker-photo::after{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(239,126,113,.12),rgba(158,107,171,.12));opacity:0;transition:opacity .3s ease}
+    .speaker-card:hover .speaker-photo::after{opacity:1}
+    .speaker-name{font-weight:900;font-size:.95rem;color:#1a1a1a;margin-bottom:.2rem}
+    .speaker-role{font-size:.8rem;color:var(--gris-vert);line-height:1.4}
+    .footer{background:var(--violet-fonce);color:var(--blanc);padding:5rem 2rem 2rem}
+    .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand img{height:50px;margin-bottom:1rem}
+    .footer-brand p{font-size:.9rem;opacity:.7;line-height:1.7}
+    .footer-col h4{font-weight:900;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.2rem;opacity:.5}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+    .footer-col a{color:var(--blanc);text-decoration:none;font-size:.9rem;opacity:.7;transition:opacity .2s}
+    .footer-col a:hover{opacity:1}
+    .footer-social{display:flex;gap:1rem;margin-top:1rem}
+    .footer-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:all .2s}
+    .footer-social a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+    .footer-social svg{width:18px;height:18px;fill:var(--blanc)}
+    .footer-newsletter{max-width:1100px;margin:0 auto;display:flex;gap:1rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-newsletter input{flex:1;padding:.9rem 1.2rem;border-radius:100px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:var(--blanc);font-size:.95rem;font-family:'Lato',sans-serif;outline:none;transition:border-color .2s}
+    .footer-newsletter input::placeholder{color:rgba(255,255,255,.4)}
+    .footer-newsletter input:focus{border-color:rgba(255,255,255,.5)}
+    .footer-newsletter button{padding:.9rem 2rem;border-radius:100px;background:var(--rose-orange);color:var(--blanc);border:none;font-size:.9rem;font-weight:700;letter-spacing:.03em;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s}
+    .footer-newsletter button:hover{background:#e06d60}
+    .footer-bottom{max-width:1100px;margin:0 auto;text-align:center;font-size:.8rem;opacity:.5}
+    .footer-bottom a{color:var(--blanc);text-decoration:underline}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+    @media(max-width:1024px){.intro-grid,.why-grid{grid-template-columns:1fr;gap:2.5rem}.intro-image{order:-1;max-width:500px;justify-self:center}.speakers-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){.section{padding:4rem 1.5rem}.stats-grid{grid-template-columns:1fr;gap:1.5rem}.cards-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-newsletter{flex-direction:column}.nav-links{display:none}.nav-cta{display:none}.nav-toggle{display:block}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--violet-fonce);padding:6rem 2rem 2rem;gap:1.5rem;z-index:1000}.nav-links.open a{font-size:1.2rem}}
+    @media(max-width:480px){.hero-content{padding:5rem 1rem 3rem}.speakers-grid{grid-template-columns:1fr;max-width:300px;margin:0 auto}.cards-grid{max-width:400px;margin:0 auto}}
+
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Entretiens Jacques Cartier - Accueil">
+        <img src="https://entretiensjacquescartier.com/app/themes/ejc-site/dist/images/logo-white_3bbe001368457fdf4e75.svg" alt="Logo Entretiens Jacques Cartier" width="114" height="70">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/le-programme/">Edition 2026</a></li>
+        <li><a href="/que-sont-les-entretiens-jacques-cartier/">Que sont les EJC?</a></li>
+        <li><a href="/appel-a-projets-entretiens-jacques-cartier/">Appel a projets</a></li>
+        <li><a href="/livres-blancs/">Livres blancs</a></li>
+      </ul>
+      <a href="https://centrejacquescartier.com/" class="nav-cta" target="_blank" rel="noopener">Centre Jacques Cartier &rarr;</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-visual circle-1"></div>
+    <div class="hero-visual circle-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Evenement francophone transatlantique</div>
+      <h1 class="hero-title"><em>Entretiens</em><br>Jacques Cartier<br>2026</h1>
+      <div class="hero-date">
+        <span class="dot"></span> du 9 au 11 novembre au Quebec <span class="dot"></span>
+      </div>
+      <div class="hero-actions">
+        <a href="/le-programme/" class="btn-primary">Decouvrir le programme</a>
+        <a href="/que-sont-les-entretiens-jacques-cartier/" class="btn-outline">En savoir plus</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Decouvrir</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+    </div>
+  </header>
+
+  <section class="section intro">
+    <div class="section-inner">
+      <div class="intro-grid">
+        <div>
+          <span class="section-label">Bienvenue</span>
+          <h2 class="section-title">Le plus grand rendez-vous francophone transatlantique</h2>
+          <p class="section-text">Les <strong>Entretiens Jacques Cartier</strong> rassemblent les territoires d&rsquo;Auvergne-Rhone-Alpes (France), du Quebec et de la francophonie canadienne.</p>
+          <p class="section-text" style="margin-top:1.5rem">Les EJC reunissent, alternativement sur chaque territoire, des milliers d&rsquo;experts et de decideurs autour d&rsquo;<strong>evenements francophones</strong> et <strong>interdisciplinaires</strong>.</p>
+          <p class="section-text" style="margin-top:1.5rem;font-weight:700;color:var(--violet-fonce);font-size:1.3rem">La prochaine edition se tiendra en <strong>novembre 2026</strong> au <strong>Quebec</strong>.</p>
+        </div>
+        <div class="intro-image">
+          <img src="https://entretiensjacquescartier.com/app/uploads/2021/09/entretiens-jacques-cartier-event.png" alt="Evenement Entretiens Jacques Cartier" loading="lazy" width="800" height="600">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stats">
+    <div class="section-inner">
+      <span class="section-label" style="color:rgba(255,255,255,.7)">En quelques chiffres</span>
+      <h2 class="section-title light">Les Entretiens Jacques Cartier</h2>
+      <div class="stats-grid">
+        <div class="stat-item reveal"><div class="stat-number">15 500</div><div class="stat-divider"></div><div class="stat-label">Expertes, Experts</div></div>
+        <div class="stat-item reveal"><div class="stat-number">82 000</div><div class="stat-divider"></div><div class="stat-label">Participantes, participants</div></div>
+        <div class="stat-item reveal"><div class="stat-number">1 200</div><div class="stat-divider"></div><div class="stat-label">Evenements</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why">
+    <div class="section-inner">
+      <span class="section-label">Pourquoi participer?</span>
+      <h2 class="section-title">Meler les savoirs pour faire evoluer la societe</h2>
+      <div class="why-grid">
+        <div class="why-image">
+          <div class="accent-dot"></div>
+          <img src="https://entretiensjacquescartier.com/app/uploads/2021/08/entretiens-jacques-cartier-1.png" alt="Entretiens Jacques Cartier" loading="lazy" width="437" height="457">
+        </div>
+        <div>
+          <p class="section-text">C&rsquo;est en melant les <strong>savoirs</strong> et les <strong>experiences</strong> des mondes economique, academique, institutionnel, culturel et scientifique que nous pouvons, <strong>ensemble</strong>, ameliorer et faire evoluer la societe.</p>
+          <ul class="benefit-list">
+            <li><span class="icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Chaque annee, les EJC rassemblent plusieurs milliers d&rsquo;<strong>experts</strong> et <strong>decideurs</strong></span></li>
+            <li><span class="icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Une <strong>vision commune</strong>: les progres de la societe sont lies aux transferts de connaissances et aux innovations interdisciplinaires</span></li>
+            <li><span class="icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Un <strong>laboratoire d&rsquo;idees</strong> et une plateforme de transfert de connaissances franco-quebeco-canadiens</span></li>
+            <li><span class="icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Organise par le <strong>Centre Jacques Cartier</strong>, co-porte par des partenaires des deux cotes de l&rsquo;Atlantique</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cards-section">
+    <div class="section-inner">
+      <span class="section-label">Explorez</span>
+      <h2 class="section-title">Donnez vie a vos projets</h2>
+      <div class="cards-grid">
+        <a href="/le-programme/" class="card reveal">
+          <img src="https://entretiensjacquescartier.com/app/uploads/2021/08/programme.png" alt="Programme EJC" loading="lazy" width="350" height="250">
+          <div class="card-overlay"></div>
+          <span class="card-label">Le Programme</span>
+          <span class="card-badge">2026</span>
+        </a>
+        <a href="/les-intervenants/" class="card reveal">
+          <img src="https://entretiensjacquescartier.com/app/uploads/2021/08/intervenants.png" alt="Intervenants EJC" loading="lazy" width="350" height="250">
+          <div class="card-overlay"></div>
+          <span class="card-label">Les Intervenants</span>
+        </a>
+        <a href="/deposer-un-projet/" class="card reveal">
+          <img src="https://entretiensjacquescartier.com/app/uploads/2021/08/plateforme.png" alt="Appel a projets EJC" loading="lazy" width="350" height="250">
+          <div class="card-overlay"></div>
+          <span class="card-label">Appel a projets</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section speakers"><div class="section-inner">
+<span class="section-label">Intervenants 2026</span>
+<h2 class="section-title">Des expertes et experts de tous horizons</h2>
+<div class="speakers-grid">
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/06/AymericDussart_Photo-353x385.jpg" alt="Aymeric Dussart" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Aymeric Dussart</div>
+      <div class="speaker-role">Vice-president, Finances et administration<br>Aeroports de Montreal</div>
+    </div>
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/07/photo-web-6-1200x674-1-353x385.jpg" alt="Valerie Mazza" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Valerie Mazza</div>
+      <div class="speaker-role">Presidente<br>PULSALYS</div>
+    </div>
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/09/Kevin-Romani-353x385.jpg" alt="Kevin Romani" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Kevin Romani</div>
+      <div class="speaker-role">Directeur des operations<br>Lyonbiopole</div>
+    </div>
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/06/Nathalie_de_Marcellis_warin_Large-scaled-1-353x385.jpg" alt="Nathalie De Marcellis-Warin" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Nathalie De Marcellis-Warin</div>
+      <div class="speaker-role">PDG<br>CIRANO</div>
+    </div>
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/10/Photo_Olivier-Girard_20220125-1-353x385.jpg" alt="Olivier Girard" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Olivier Girard</div>
+      <div class="speaker-role">Chef d&rsquo;unite Contre-mesures Medicales (HERA)<br>Union Europeenne</div>
+    </div>
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/06/1-_MG_4916-353x385.jpg" alt="Coline Moreau" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Coline Moreau</div>
+      <div class="speaker-role">Doctorante, Boursiere Fondation Pierre Elliott Trudeau<br>Universite d&rsquo;Ottawa</div>
+    </div>
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/06/Photo_EvelyneDeLeuuw-353x385.png" alt="Evelyne de Leeuw" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Evelyne de Leeuw</div>
+      <div class="speaker-role">Titulaire, Chaire d&rsquo;excellence en recherche du Canada<br>Universite de Montreal</div>
+    </div>
+<div class="speaker-card reveal">
+      <div class="speaker-photo"><img src="https://entretiensjacquescartier.com/app/uploads/2025/07/Stephanie-et-Xavier-1-353x385.jpeg" alt="Stephanie Claudin" loading="lazy" width="353" height="385"></div>
+      <div class="speaker-name">Stephanie Claudin</div>
+      <div class="speaker-role">Chef de projet<br>Defile de la Biennale de la Danse</div>
+    </div>
+</div>
+<div style="text-align:center;margin-top:3rem"><a href="/les-intervenants/" class="btn-primary" style="background:var(--gradient-1);color:var(--blanc)">En decouvrir plus</a></div>
+</div></section>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://entretiensjacquescartier.com/app/themes/ejc-site/dist/images/logo-white_3bbe001368457fdf4e75.svg" alt="Logo EJC" width="110" height="68">
+        <p>Les Entretiens Jacques Cartier sont le rendez-vous francophone des acteurs et decideurs d&rsquo;Auvergne-Rhone-Alpes, du Quebec et de la francophonie canadienne.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/centre-jacques-cartier" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://twitter.com/centre_jcartier" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.facebook.com/CJCLyon" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCpMqn8-kK1_osS7S7Gk5XQw" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Edition 2026</h4>
+        <ul>
+          <li><a href="/le-programme/">Les colloques et conferences</a></li>
+          <li><a href="/les-intervenants/">Les conferenciers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>A propos</h4>
+        <ul>
+          <li><a href="/que-sont-les-entretiens-jacques-cartier/">Que sont les EJC?</a></li>
+          <li><a href="/editions-precedentes/">Editions precedentes</a></li>
+          <li><a href="/appel-a-projets-entretiens-jacques-cartier/">Appel a projets</a></li>
+          <li><a href="/deposer-un-projet/">Deposer un projet</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Centre Jacques Cartier</h4>
+        <ul>
+          <li><a href="https://centrejacquescartier.com/actualites/" target="_blank" rel="noopener">Actualites</a></li>
+          <li><a href="/mentions-legales/">Mentions legales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-newsletter">
+      <input type="email" placeholder="Votre adresse email" aria-label="Adresse email pour la newsletter">
+      <button type="button">S&rsquo;inscrire a la newsletter</button>
+    </div>
+    <div class="footer-bottom"><p>&copy; Centre Jacques Cartier &mdash; <a href="/mentions-legales/">Mentions legales</a></p></div>
+  </footer>
+
+  <script>
+    var nav=document.getElementById("nav"),navToggle=document.getElementById("navToggle"),navLinks=document.getElementById("navLinks");
+    window.addEventListener("scroll",function(){window.scrollY>50?nav.classList.add("scrolled"):nav.classList.remove("scrolled")});
+    navToggle.addEventListener("click",function(){navLinks.classList.toggle("open");nav.classList.add("scrolled")});
+    navLinks.querySelectorAll("a").forEach(function(l){l.addEventListener("click",function(){navLinks.classList.remove("open")})});
+    if("IntersectionObserver"in window){
+      var o=new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&e.target.classList.add("visible")})},{threshold:.15,rootMargin:"0px 0px -50px 0px"});
+      document.querySelectorAll(".reveal").forEach(function(e){o.observe(e)});
+    }else{document.querySelectorAll(".reveal").forEach(function(e){e.classList.add("visible")});}
+  </script>
+</body>
+</html>

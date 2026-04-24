@@ -1,220 +1,1225 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Entretiens Jacques Cartier | Accueil</title>
-    <meta
-      name="description"
-      content="Les Entretiens Jacques Cartier, rendez-vous francophone des acteurs et décideurs d'Auvergne-Rhône-Alpes, du Québec et de la francophonie canadienne."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body id="top">
-    <div class="noise-overlay" aria-hidden="true"></div>
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="#top" aria-label="Accueil Entretiens Jacques Cartier">
-          <img src="assets/images/legacy/logo-rose.png" alt="Logo Entretiens Jacques Cartier" />
-        </a>
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Les Entretiens Jacques Cartier sont le rendez-vous francophone des acteurs et décideurs d'Auvergne-Rhône-Alpes, du Québec et de la francophonie canadienne.">
+  <title>Entretiens Jacques Cartier | Évènements Auvergne-Rhône-Alpes x Québec</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       VARIABLES & RESET
+       ============================================ */
+    :root {
+      --color-primary: #ef7e71;
+      --color-primary-light: #f0878c;
+      --color-secondary: #926dad;
+      --color-secondary-light: #9d86be;
+      --color-accent: #f3a272;
+      --color-background: #f3f0f0;
+      --color-surface: #ffffff;
+      --color-text: #2d2d2d;
+      --color-text-muted: #7f877f;
+      --color-light: #f3f0f0;
+      --color-dark: #1f1f2e;
+      --color-white: #ffffff;
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-          Menu
+      --gradient-1: linear-gradient(135deg, #f0878c 0%, #f3af9b 100%);
+      --gradient-2: linear-gradient(135deg, #f0878c 0%, #926dad 100%);
+      --gradient-3: linear-gradient(135deg, #f3af9b 0%, #9d86be 100%);
+      --gradient-dark: linear-gradient(135deg, #701a57 0%, #1f1f2e 100%);
+
+      --font-body: 'Lato', sans-serif;
+      --radius: 12px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --container-max: 1200px;
+      --header-height: 80px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: var(--color-surface);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================
+       ACCESSIBILITY
+       ============================================ */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 8px 16px;
+      z-index: 10000;
+      transition: top 0.3s;
+      font-weight: 700;
+      border-radius: 0 0 var(--radius) 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid var(--color-white);
+      outline-offset: -3px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* ============================================
+       UTILITIES
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .text-center { text-align: center; }
+    .text-light { color: var(--color-white); }
+    .text-primary { color: var(--color-primary); }
+    .text-muted { color: var(--color-text-muted); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    h1, h2, h3, h4 {
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: var(--color-text);
+    }
+
+    .section-title.text-light {
+      color: var(--color-white);
+    }
+
+    .lead {
+      font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      max-width: 65ch;
+      margin: 0 auto 1.5rem;
+    }
+
+    .body-large {
+      font-size: clamp(1.125rem, 2vw, 1.25rem);
+      line-height: 1.7;
+      max-width: 65ch;
+      margin: 0 auto 1rem;
+    }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius-pill);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      white-space: nowrap;
+      touch-action: manipulation;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 14px rgba(239, 126, 113, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #e86a5c;
+      border-color: #e86a5c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 126, 113, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text);
+      border-color: var(--color-text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-text);
+      color: var(--color-white);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+
+    .btn-outline:hover {
+      background: var(--color-white);
+      color: var(--color-text);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--color-white);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .btn-outline-light:hover {
+      background: var(--color-white);
+      color: var(--color-secondary);
+      border-color: var(--color-white);
+    }
+
+    .btn-lg {
+      padding: 1.125rem 2.25rem;
+      font-size: 1.125rem;
+    }
+
+    .btn-sm {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    /* ============================================
+       DIVIDER
+       ============================================ */
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: var(--color-primary);
+      border: none;
+      border-radius: var(--radius-pill);
+      margin: 1.5rem auto;
+      opacity: 1;
+    }
+
+    .divider-light {
+      background: var(--color-white);
+    }
+
+    /* ============================================
+       HEADER & NAVIGATION
+       ============================================ */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      z-index: 1000;
+      transition: var(--transition);
+      background: transparent;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      z-index: 1001;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+      transition: var(--transition);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.5rem 1rem;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--color-white);
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .site-header.is-scrolled .nav-link {
+      color: var(--color-text);
+    }
+
+    .nav-link:hover {
+      color: var(--color-primary);
+    }
+
+    .nav-item.has-dropdown {
+      position: relative;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      background: var(--color-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 0.5rem;
+      min-width: 260px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: var(--transition);
+      z-index: 100;
+    }
+
+    .nav-item.has-dropdown:hover .dropdown,
+    .nav-item.has-dropdown:focus-within .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-link {
+      display: block;
+      padding: 0.625rem 1rem;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--color-text);
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .dropdown-link:hover {
+      background: var(--color-background);
+      color: var(--color-primary);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .hamburger {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-white);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .site-header.is-scrolled .hamburger,
+    .site-header.is-scrolled .hamburger::before,
+    .site-header.is-scrolled .hamburger::after {
+      background: var(--color-text);
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-white);
+      transition: var(--transition);
+    }
+
+    .hamburger::before { top: -7px; }
+    .hamburger::after { top: 7px; }
+
+    .nav-toggle[aria-expanded="true"] .hamburger {
+      background: transparent;
+    }
+
+    .nav-toggle[aria-expanded="true"] .hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+      background: var(--color-text);
+    }
+
+    .nav-toggle[aria-expanded="true"] .hamburger::after {
+      top: 0;
+      transform: rotate(-45deg);
+      background: var(--color-text);
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      padding-top: var(--header-height);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(31, 31, 46, 0.5), rgba(31, 31, 46, 0.7));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--color-white);
+      max-width: 900px;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      border-radius: var(--radius-pill);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero-title .text-accent {
+      color: var(--color-primary-light);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* ============================================
+       SECTIONS
+       ============================================ */
+    .section {
+      padding: 5rem 0;
+    }
+
+    /* Welcome */
+    .welcome {
+      background: var(--color-background);
+    }
+
+    .welcome-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .welcome .section-title {
+      color: var(--color-text);
+    }
+
+    .welcome .section-title strong {
+      color: var(--color-primary);
+    }
+
+    .highlight {
+      background: transparent;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    /* About */
+    .about {
+      background: var(--color-surface);
+    }
+
+    .about-text {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+
+    .about-text p + p {
+      margin-top: 1.5rem;
+    }
+
+    .about-text strong {
+      color: var(--color-text);
+    }
+
+    /* Stats */
+    .stats {
+      position: relative;
+      padding: 6rem 0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .stats-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(146, 109, 173, 0.92), rgba(239, 126, 113, 0.92));
+      z-index: 1;
+    }
+
+    .stats .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-number {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      font-size: 1.125rem;
+      font-weight: 700;
+      opacity: 0.95;
+    }
+
+    /* Why Participate */
+    .why-participate {
+      background: var(--color-surface);
+    }
+
+    .why-participate .section-lead {
+      max-width: 750px;
+      margin: 0 auto 3rem;
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pillar-card {
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border-top: 4px solid var(--color-primary);
+      transition: var(--transition);
+    }
+
+    .pillar-card:nth-child(2) {
+      border-top-color: var(--color-secondary);
+    }
+
+    .pillar-card:nth-child(3) {
+      border-top-color: var(--color-accent);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pillar-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-background);
+      border-radius: 50%;
+      color: var(--color-primary);
+    }
+
+    .pillar-card:nth-child(2) .pillar-icon {
+      color: var(--color-secondary);
+    }
+
+    .pillar-card:nth-child(3) .pillar-icon {
+      color: var(--color-accent);
+    }
+
+    .pillar-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+    }
+
+    .pillar-card p {
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 6rem 0;
+      background: var(--gradient-2);
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-content p {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .site-footer {
+      background: var(--color-dark);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 4rem 0 0;
+      font-size: 0.9375rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .footer-logo {
+      height: 60px;
+      width: auto;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .footer-brand p {
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .footer-nav h3,
+    .footer-contact h3,
+    .footer-social h3 {
+      color: var(--color-white);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-nav a,
+    .footer-contact a {
+      display: block;
+      padding: 0.35rem 0;
+      transition: var(--transition);
+    }
+
+    .footer-nav a:hover,
+    .footer-contact a:hover {
+      color: var(--color-primary-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-bottom a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: var(--transition);
+    }
+
+    .footer-bottom a:hover {
+      color: var(--color-primary-light);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --header-height: 70px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(320px, 80vw);
+        height: 100vh;
+        height: 100dvh;
+        background: var(--color-white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem 2rem;
+        gap: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+        overflow-y: auto;
+      }
+
+      .nav-menu.is-open {
+        transform: translateX(0);
+      }
+
+      .nav-link {
+        color: var(--color-text) !important;
+        padding: 1rem 0;
+        font-size: 1.125rem;
+        width: 100%;
+        border-bottom: 1px solid var(--color-background);
+        border-radius: 0;
+      }
+
+      .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0 0 0 1rem;
+        min-width: auto;
+        display: none;
+      }
+
+      .nav-item.has-dropdown.is-open .dropdown {
+        display: block;
+      }
+
+      .dropdown-link {
+        padding: 0.75rem 0;
+        color: var(--color-text-muted);
+      }
+
+      .header-inner .btn-secondary {
+        display: none;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-lg {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .stats {
+        background-attachment: scroll;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-link" aria-label="Accueil - Entretiens Jacques Cartier">
+        <img src="images/logo.svg" alt="Logo Entretiens Jacques Cartier" class="logo-img" width="180" height="70">
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu de navigation">
+          <span class="hamburger"></span>
         </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Edition 2026</a>
+            <ul class="dropdown">
+              <li><a href="#" class="dropdown-link">Les colloques et conférences</a></li>
+              <li><a href="#" class="dropdown-link">Éditions précédentes</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">Que sont les EJC ?</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Appel à projets</a>
+            <ul class="dropdown">
+              <li><a href="#" class="dropdown-link">Qu'est-ce que l'appel à projets ?</a></li>
+              <li><a href="#" class="dropdown-link">Comment déposer un projet ?</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">Livres blancs</a></li>
+        </ul>
+      </nav>
 
-        <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
-          <a href="#programme" class="pending-link">Le programme</a>
-          <a href="#intervenants" class="pending-link">Les intervenants</a>
-          <a href="#projets" class="pending-link">Appel à projets</a>
-          <a href="#que-sont-les-ejc" class="pending-link">Les EJC</a>
-          <a href="#contact" class="pending-link">Contact</a>
-        </nav>
+      <a href="https://centrejacquescartier.com/" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Centre Jacques Cartier</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="hero" style="background-image: url('images/hero-banner.jpg');" aria-label="Bannière principale">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <span class="hero-tag">Prochaine édition</span>
+        <h1 class="hero-title">Entretiens Jacques Cartier <span class="text-accent">2026</span></h1>
+        <p class="hero-subtitle">Du 9 au 11 novembre au Québec</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary btn-lg">Découvrir le programme</a>
+          <a href="#" class="btn btn-outline btn-lg">Participer</a>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="hero">
-        <div class="hero-backdrop" aria-hidden="true"></div>
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Édition 2025 • Auvergne-Rhône-Alpes × Québec</p>
-            <h1>
-              Le rendez-vous francophone des acteurs et décideurs qui font avancer la société.
-            </h1>
-            <p>
-              Pendant les EJC, des expertes et experts de tous horizons collaborent, partagent leurs
-              savoirs et transforment des idées en actions concrètes.
-            </p>
-            <div class="hero-actions">
-              <a href="#programme" class="btn btn-primary pending-link">Découvrir le programme</a>
-              <a href="#projets" class="btn btn-ghost pending-link">Déposer un projet</a>
+    <!-- Welcome -->
+    <section class="section welcome" aria-labelledby="welcome-title">
+      <div class="container">
+        <div class="welcome-inner reveal">
+          <h2 id="welcome-title" class="section-title">Bienvenue sur le site des <strong>Entretiens Jacques Cartier</strong> !</h2>
+          <p class="lead">Le plus grand rendez-vous réunissant les territoires d'Auvergne-Rhône-Alpes (France), du Québec et de la francophonie canadienne.</p>
+          <hr class="divider">
+          <p class="body-large">Les EJC rassemblent, alternativement sur chaque territoire, des milliers d'experts et de décideurs autour d'<mark class="highlight">évènements francophones</mark> et <mark class="highlight">interdisciplinaires</mark>.</p>
+          <p class="body-large">La prochaine édition des EJC se tiendra en <mark class="highlight">novembre 2026</mark> au <mark class="highlight">Québec</mark>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-text reveal">
+          <p id="about-title">Pendant les <strong class="text-primary">EJC</strong>, des experts et décideurs de tous horizons collaborent. Ils font des rencontres marquantes. Et ils saisissent de nouvelles occasions pour contribuer, ensemble, à l'évolution de la société.</p>
+          <p>Si vous souhaitez participer à la réflexion et à l'action pour une société plus innovante et responsable, <strong>les Entretiens Jacques Cartier constituent un rendez-vous incontournable</strong> !</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats" style="background-image: url('images/event.png');" aria-label="Chiffres clés">
+      <div class="stats-overlay"></div>
+      <div class="container">
+        <h2 class="section-title text-center text-light reveal">Les Entretiens Jacques Cartier en quelques chiffres</h2>
+        <hr class="divider divider-light">
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-number" data-target="15500">0</div>
+            <div class="stat-label">Expertes, Experts</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-number" data-target="82000">0</div>
+            <div class="stat-label">Participantes, participants</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-number" data-target="1200">0</div>
+            <div class="stat-label">Évènements</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Participate -->
+    <section class="section why-participate" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title" class="section-title text-center reveal">Pourquoi participer ?</h2>
+        <hr class="divider">
+        <p class="section-lead text-center reveal">C'est en mêlant les <span class="text-primary">savoirs</span> et les <span class="text-primary">expériences</span> des mondes économique, académique, institutionnel, culturel et scientifique que nous pouvons, <span class="text-primary">ensemble</span>, améliorer et faire évoluer la société.</p>
+
+        <div class="pillars-grid">
+          <article class="pillar-card reveal">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-          </div>
-          <div class="hero-media">
-            <img src="assets/images/legacy/hero-banner.jpg" alt="Bannière Entretiens Jacques Cartier" />
-          </div>
-        </div>
-      </section>
-
-      <section class="intro container">
-        <p>
-          Si vous souhaitez participer à la réflexion et à l'action pour une société plus innovante et
-          responsable, les Entretiens Jacques Cartier constituent un rendez-vous incontournable.
-        </p>
-      </section>
-
-      <section class="stats-section">
-        <div class="container">
-          <h2>Les Entretiens Jacques Cartier en quelques chiffres</h2>
-          <div class="stats-grid">
-            <article class="stat-card">
-              <p class="stat-value">15 500+</p>
-              <p class="stat-label">Expertes, experts</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-value">82 000+</p>
-              <p class="stat-label">Participantes, participants</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-value">1 200+</p>
-              <p class="stat-label">Évènements</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="why-section container" id="que-sont-les-ejc">
-        <div class="why-media">
-          <img src="assets/images/legacy/intervenants.png" alt="Intervenants Entretiens Jacques Cartier" />
-        </div>
-        <div class="why-copy">
-          <h2>Pourquoi participer ?</h2>
-          <p>
-            C'est en mêlant les savoirs et les expériences des mondes économique, académique,
-            institutionnel, culturel et scientifique que nous pouvons, ensemble, améliorer et faire
-            évoluer la société.
-          </p>
-          <p>
-            Les EJC sont organisés par le Centre Jacques Cartier et co-portés par un réseau de
-            partenaires des deux côtés de l'Atlantique.
-          </p>
-          <a href="https://centrejacquescartier.com/" class="text-link" target="_blank" rel="noreferrer"
-            >Visiter le Centre Jacques Cartier</a
-          >
-        </div>
-      </section>
-
-      <section class="highlights" id="programme">
-        <div class="container">
-          <h2>Explorer l'édition</h2>
-          <div class="highlight-grid">
-            <article class="highlight-card">
-              <img src="assets/images/legacy/programme.png" alt="Le programme" />
-              <div class="highlight-content">
-                <h3>Le programme</h3>
-                <a href="#programme-complet" class="pending-link">Voir les colloques et conférences</a>
-              </div>
-            </article>
-            <article class="highlight-card" id="intervenants">
-              <img src="assets/images/legacy/intervenants.png" alt="Les intervenants" />
-              <div class="highlight-content">
-                <h3>Les intervenants</h3>
-                <a href="#directory" class="pending-link">Accéder à l'annuaire des intervenants</a>
-              </div>
-            </article>
-            <article class="highlight-card" id="projets">
-              <img src="assets/images/legacy/plateforme.png" alt="Appel à projets" />
-              <div class="highlight-content">
-                <h3>Appel à projets</h3>
-                <a href="#submit-project" class="pending-link">Comprendre et déposer un projet</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="speakers container">
-        <div class="section-heading">
-          <h2>Des intervenantes et intervenants de tous horizons</h2>
-          <a href="#all-speakers" class="pending-link">En découvrir plus</a>
-        </div>
-        <div class="speakers-grid">
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-aymeric.jpg" alt="Aymeric Dussart" />
-            <h3>Aymeric Dussart</h3>
-            <p>Vice-président, Finances et administration</p>
+            <h3>Rencontrer</h3>
+            <p>Créez des liens durables avec des décideurs et experts de France, du Québec et de la francophonie canadienne.</p>
           </article>
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-coline.jpg" alt="Valérie Mazza" />
-            <h3>Valérie Mazza</h3>
-            <p>Présidente, PULSALYS</p>
+          <article class="pillar-card reveal">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Échanger</h3>
+            <p>Participez à des dialogues interdisciplinaires riches entre le monde économique, académique, institutionnel et culturel.</p>
           </article>
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-kevin.jpg" alt="Kevin Romani" />
-            <h3>Kevin Romani</h3>
-            <p>Directeur des opérations, Lyonbiopôle</p>
+          <article class="pillar-card reveal">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Agir</h3>
+            <p>Saisissez de nouvelles occasions pour contribuer, ensemble, à l'évolution d'une société plus innovante et responsable.</p>
           </article>
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-nathalie.jpg" alt="Nathalie De Marcellis-Warin" />
-            <h3>Nathalie De Marcellis-Warin</h3>
-            <p>PDG, CIRANO</p>
-          </article>
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-olivier.jpg" alt="Olivier Girard" />
-            <h3>Olivier Girard</h3>
-            <p>Union Européenne</p>
-          </article>
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-valerie.jpg" alt="Coline Moreau" />
-            <h3>Coline Moreau</h3>
-            <p>Doctorante, Université d'Ottawa</p>
-          </article>
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-evelyne.png" alt="Evelyne de Leeuw" />
-            <h3>Evelyne de Leeuw</h3>
-            <p>Chaire d'excellence Une seule santé urbaine</p>
-          </article>
-          <article class="speaker-card">
-            <img src="assets/images/legacy/speaker-stephanie.jpeg" alt="Stéphanie Claudin" />
-            <h3>Stéphanie Claudin</h3>
-            <p>Chef de projet, Biennale de la Danse</p>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer" id="contact">
-      <div class="container footer-grid">
-        <div>
-          <img src="assets/images/legacy/logo-rose.png" alt="Logo EJC" class="footer-logo" />
-          <p>Entretiens Jacques Cartier, réseau francophone de dialogue et d'innovation.</p>
-        </div>
-        <div>
-          <h4>Édition 2025</h4>
-          <a href="#programme" class="pending-link">Les colloques et conférences</a>
-          <a href="#intervenants" class="pending-link">Les conférencières et conférenciers</a>
-        </div>
-        <div>
-          <h4>Que sont les EJC ?</h4>
-          <a href="#que-sont-les-ejc" class="pending-link">Les EJC</a>
-          <a href="#editions" class="pending-link">Éditions précédentes</a>
-        </div>
-        <div>
-          <h4>Appel à projet</h4>
-          <a href="#projets" class="pending-link">Qu'est-ce que l'appel à projets ?</a>
-          <a href="#depot" class="pending-link">Comment déposer un projet ?</a>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    <!-- CTA -->
+    <section class="cta-section" aria-label="Appel à l'action">
+      <div class="container cta-content reveal">
+        <h2>Prêt à rejoindre l'aventure ?</h2>
+        <p>L'édition 2026 au Québec vous attend. Proposez un projet ou inscrivez-vous dès maintenant.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-outline-light btn-lg">Appel à projets</a>
+          <a href="#" class="btn btn-outline-light btn-lg">Contactez-nous</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo-white.svg" alt="Entretiens Jacques Cartier" class="footer-logo" width="150" height="60">
+        <p>Le rendez-vous francophone des acteurs et décideurs d'Auvergne-Rhône-Alpes, du Québec et de la francophonie canadienne.</p>
+      </div>
+      <div class="footer-nav">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="#">Edition 2026</a></li>
+          <li><a href="#">Que sont les EJC ?</a></li>
+          <li><a href="#">Appel à projets</a></li>
+          <li><a href="#">Livres blancs</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Centre Jacques Cartier<br>26 place Bellecour<br>69002 Lyon, France</p>
+        <p><a href="mailto:contact@centrejacquescartier.com">contact@centrejacquescartier.com</a></p>
+        <p>T. +33 4 78 60 98 48</p>
+      </div>
+      <div class="footer-social">
+        <h3>Suivez-nous</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/CJCLyon/" aria-label="Facebook du Centre Jacques Cartier" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCpMqn8-kK1_osS7S7Gk5XQw" aria-label="Chaîne YouTube des Entretiens Jacques Cartier" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; Entretiens Jacques Cartier. Tous droits réservés. | <a href="https://centrejacquescartier.com/">Centre Jacques Cartier</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    const header = document.getElementById('site-header');
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const dropdownParents = document.querySelectorAll('.nav-item.has-dropdown > .nav-link');
+
+    // Header scroll effect
+    function handleScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    // Mobile menu toggle
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('is-open');
+      document.body.style.overflow = !isExpanded ? 'hidden' : '';
+    });
+
+    // Mobile dropdown toggles
+    dropdownParents.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const parent = link.parentElement;
+          const isOpen = parent.classList.contains('is-open');
+          // Close others
+          document.querySelectorAll('.nav-item.has-dropdown.is-open').forEach(item => {
+            if (item !== parent) item.classList.remove('is-open');
+          });
+          parent.classList.toggle('is-open');
+          link.setAttribute('aria-expanded', !isOpen);
+        }
+      });
+    });
+
+    // Close mobile menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navMenu.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+
+    /* ============================================
+       SCROLL REVEAL
+       ============================================ */
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('is-visible');
+          }, index * 100);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ============================================
+       ANIMATED COUNTERS
+       ============================================ */
+    const counters = document.querySelectorAll('.stat-number');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'), 10);
+          const duration = 2000;
+          const start = performance.now();
+
+          function update(currentTime) {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out quart
+            const ease = 1 - Math.pow(1 - progress, 4);
+            const current = Math.floor(ease * target);
+            el.textContent = current.toLocaleString('fr-FR');
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              el.textContent = target.toLocaleString('fr-FR');
+            }
+          }
+
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+  </script>
+</body>
 </html>
